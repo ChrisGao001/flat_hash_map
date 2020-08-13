@@ -641,7 +641,7 @@ public:
                 depth_in_chain.emplace_back(distance, list_it);
             }
         }
-        std::sort(depth_in_chain.begin(), depth_in_chain.end(), [](const auto & a, const auto & b) { return a.first < b.first; });
+        std::sort(depth_in_chain.begin(), depth_in_chain.end(), [](const std::pair<int, LinkedListIt>& a, const std::pair<int, LinkedListIt>& b) { return a.first < b.first; });
         for (auto it = depth_in_chain.rbegin(), end = depth_in_chain.rend(); it != end; ++it)
         {
             erase(it->second.it());
